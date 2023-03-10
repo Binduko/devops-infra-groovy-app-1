@@ -23,12 +23,12 @@ stage('Build') {
 	archive 'targer/*.jar' 
 }
 
-stage('Integration Test') {
+stage('Docker Build') {
  if (isUnix()){
  
- sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean verify"
+ sh "'${mvnHome}/bin/mvn' -spring-boot:build-image"
  } else {
- bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean verify/)
+ bat(/"${mvnHome}\bin\mvn" -spring-boot:build-image/)
  }
  
  }
