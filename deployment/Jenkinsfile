@@ -30,7 +30,7 @@ if (isUnix()){
  
 sh "minikube image load binduko/app-products-infra"
  } else {
- bat("minikube image load binduko/app-products-infra/")
+ bat("minikube image load binduko/app-products-infra")
  }
  }
  
