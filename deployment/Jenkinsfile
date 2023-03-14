@@ -20,7 +20,7 @@ stage('Build') {
  
  stage('Unit Test') {
 
-	junit '**/target/surefire-reports/TEST-*.xml'
+	junit '*/target/surefire-reports/TEST-*.xml'
 	archive 'targer/*.jar' 
 }
 
@@ -34,7 +34,7 @@ sh "minikube image load binduko/app-products-infra"
  }
  }
  
- stage('Kubernetes pod') {
+ stage('Kubernetes Pod') {
 if (isUnix()){
  
 sh "kubectl apply -f k8s/deployment.yml"
